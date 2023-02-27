@@ -25,7 +25,7 @@
           <td th:text="${produto.preco}"></td>
           <td>
             <button><a th:href="@{'/editar/' + ${produto.id}}" class="btn btn-danger btn-sm" methods="POST">Editar</a></button>
-            <form th:action="@{'/excluir/' + ${produto.id}}"   method="POST">
+              <form th:action="@{'/excluir/' + ${produto.id}}"   method="POST">
               <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
             </form>
           </td>

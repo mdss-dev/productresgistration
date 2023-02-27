@@ -3,6 +3,7 @@ package com.example.productregistration.controller;
 import com.example.productregistration.model.Produto;
 import com.example.productregistration.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -56,23 +57,25 @@ public class ProdutoController {
         return "produtos/formulario";
     }
 
-    @PostMapping("/excluir/{id}")
-    public String excluir(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-        Optional<Produto> produto = Optional.ofNullable(produtoService.buscarPorId(id));
-        if (produto.isPresent()) {
-            produtoService.excluir(id);
-            redirectAttributes.addFlashAttribute("mensagem", "Produto excluído com sucesso!");
-        } else {
-            redirectAttributes.addFlashAttribute("erro", "Não foi possível excluir o produto. Produto não encontrado.");
-        }
-        return "redirect:/produtos/todosOsProdutos";
-    }
-
 //    @PostMapping("/excluir/{id}")
-//    public String excluir(@PathVariable Long id) {
-//        produtoService.excluir(id);
+//    public String excluir(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+//        Optional<Produto> produto = Optional.ofNullable(produtoService.buscarPorId(id));
+//        if (produto.isPresent()) {
+//            produtoService.excluir(id);
+//            redirectAttributes.addFlashAttribute("mensagem", "Produto excluído com sucesso!");
+//        } else {
+//            redirectAttributes.addFlashAttribute("erro", "Não foi possível excluir o produto. Produto não encontrado.");
+//        }
 //        return "redirect:/produtos/todosOsProdutos";
 //    }
+
+    @PostMapping("excluir/{id}")
+    @CacheEvict(value = "produto", allEntries = true)
+    public String excluir(@PathVariable(name = "id") Long id, Model model) {
+        Produto produto = produtoService.buscarPorId(id);
+        produtoService.excluir(id);
+        return "redirect:/";
+    }
 
     @GetMapping("/buscarProduto")
     public String buscarPorId(Model model) {
