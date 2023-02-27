@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Lista de Produtos</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<div class="container">
+  <h1>Bem vindo ao painel de gerenciamento de Produtos</h1>
+
+  <div class="index">
+    <div class="col-sm-12">
+      <button><a th:href="@{/novo}" class="btn btn-success btn-lg">Cadastrar Novo Produto</a></button>
+    </div>
+    <div class="col-sm-12">
+      <button><a th:href="@{/listar}" class="btn btn-success btn-lg">Listar todos os produtos</a></button>
+    </div>
+    <div class="col-sm-12">
+      <button><a th:href="@{/buscarProduto}" class="btn btn-success btn-lg">Buscar Produto por Id ou Nome</a></button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

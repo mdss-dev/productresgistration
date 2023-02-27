@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalhes do Produto</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+
+</head>
+<body>
+<h1>Detalhes do Produto</h1>
+
+<p th:if="${mensagem} != null" th:text="${mensagem}"></p>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Descrição</th>
+    <th>Preço</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td th:text="${produto.id}"></td>
+    <td th:text="${produto.nome}"></td>
+    <td th:text="${produto.descricao}"></td>
+    <td th:text="${produto.preco}"></td>
+  </tr>
+  </tbody>
+</table>
+<button><a th:href="@{/}" class="btn btn-success btn-lg">Home</a></button>
+<button><a th:href="@{/buscarProduto}" class="btn btn-success btn-lg">Voltar</a></button>
+
+</body>
+</html>

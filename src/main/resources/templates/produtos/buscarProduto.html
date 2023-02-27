@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Buscar Produto por ID</title>
+  <link rel="stylesheet" href="../static/css/style.css"/>
+</head>
+<body>
+<h2>Buscar Produto por ID</h2>
+<form action="#" th:action="@{/buscar}" th:object="${produto}" method="get">
+  <label for="id">ID do Produto:</label>
+  <input type="text" id="id" name="id" th:field="*{id}" required/>
+  <button type="submit">Buscar</button>
+</form>
+<h2>Buscar Produto por Nome</h2>
+<form action="#" th:action="@{/buscarPorNome}" th:object="${produto}" method="get">
+  <label for="name">Nome do Produto:</label>
+  <input type="text" id="name" name="nome" th:field="*{nome}"required/>
+  <button type="submit">Buscar</button>
+</form>
+<button><a th:href="@{/}" class="btn btn-success btn-lg">Home</a></button>
+</body>
+</html>

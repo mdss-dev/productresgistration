@@ -1,11 +1,11 @@
-package com.example.productregistration.entity;
+package com.example.productregistration.model;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import javax.annotation.processing.Generated;
-
+@Entity
 public class Produto {
 
     /*
@@ -23,6 +23,16 @@ public class Produto {
     private Double preco;
 
     private Integer quantidade;
+
+    private String descricao;
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String ercricao) {
+        this.descricao = ercricao;
+    }
 
     public Long getId() {
         return id;
