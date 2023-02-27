@@ -1,4 +1,4 @@
-package com.example.productregistration;
+package com.example.gerenciadoProdutos;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

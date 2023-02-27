@@ -1,7 +1,7 @@
-package com.example.productregistration.controller;
+package com.example.gerenciadoProdutos.controller;
 
-import com.example.productregistration.model.Produto;
-import com.example.productregistration.service.ProdutoService;
+import com.example.gerenciadoProdutos.model.Produto;
+import com.example.gerenciadoProdutos.service.ProdutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 import javax.validation.Valid;
@@ -57,17 +56,6 @@ public class ProdutoController {
         return "produtos/formulario";
     }
 
-//    @PostMapping("/excluir/{id}")
-//    public String excluir(@PathVariable Long id, RedirectAttributes redirectAttributes) {
-//        Optional<Produto> produto = Optional.ofNullable(produtoService.buscarPorId(id));
-//        if (produto.isPresent()) {
-//            produtoService.excluir(id);
-//            redirectAttributes.addFlashAttribute("mensagem", "Produto excluído com sucesso!");
-//        } else {
-//            redirectAttributes.addFlashAttribute("erro", "Não foi possível excluir o produto. Produto não encontrado.");
-//        }
-//        return "redirect:/produtos/todosOsProdutos";
-//    }
 
     @PostMapping("excluir/{id}")
     @CacheEvict(value = "produto", allEntries = true)

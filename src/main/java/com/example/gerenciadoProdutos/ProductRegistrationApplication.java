@@ -1,4 +1,4 @@
-package com.example.productregistration;
+package com.example.gerenciadoProdutos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

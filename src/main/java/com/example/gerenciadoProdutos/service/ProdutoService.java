@@ -1,7 +1,7 @@
-package com.example.productregistration.service;
+package com.example.gerenciadoProdutos.service;
 
-import com.example.productregistration.model.Produto;
-import com.example.productregistration.repository.ProdutoRepository;
+import com.example.gerenciadoProdutos.model.Produto;
+import com.example.gerenciadoProdutos.repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
